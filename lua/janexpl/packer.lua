@@ -3,6 +3,7 @@ if (not status) then
   print("Packer not installed")
   return
 end
+
 vim.cmd [[packadd packer.nvim]]
 vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 
