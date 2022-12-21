@@ -1,15 +1,18 @@
-require("zen-mode").setup {
-    window = {
-        width = 90,
-        options = {
-            number = true,
-            relativenumber = true,
-        }
-    },
+local status, zenmode = pcall(require, "zen-mode")
+if (not status) then return end
+
+zenmode.setup {
+  window = {
+    width = 90,
+    options = {
+      number = true,
+      relativenumber = true,
+    }
+  },
 }
 
 vim.keymap.set("n", "<leader>zz", function()
-    require("zen-mode").toggle()
-    vim.wo.wrap = false
-    ColorMyPencils()
+  require("zen-mode").toggle()
+  vim.wo.wrap = false
+  ColorMyPencils()
 end)

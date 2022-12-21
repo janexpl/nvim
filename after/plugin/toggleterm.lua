@@ -1,8 +1,11 @@
+local status, toggleterm = pcall(require, "toggleterm")
+if (not status) then return end
+
 vim.keymap.set("n", "<leader>tf", ":ToggleTerm direction=float<cr>", { silent = true })
 vim.keymap.set("n", "<leader>th", ":ToggleTerm size=10 direction=horizontal<cr>", { silent = true })
 vim.keymap.set("n", "<leader>tv", ":ToggleTerm size=80 direction=vertical<cr>", { silent = true })
 
-require("toggleterm").setup{
+toggleterm.setup {
   size = 10,
   open_mapping = [[<F7>]],
   shading_factor = 2,

@@ -1,4 +1,6 @@
-require('git').setup({
+local status, git = pcall(require, "git")
+if (not status) then return end
+git.setup({
   default_mappings = true, -- NOTE: `quit_blame` and `blame_commit` are still merged to the keymaps even if `default_mappings = false`
 
   keymaps = {
