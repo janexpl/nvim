@@ -1,6 +1,7 @@
 local status, lspconfig = pcall(require, "lspconfig")
 if (not status) then return end
-require 'lspconfig'.clangd.setup {}
+lspconfig.clangd.setup {}
+lspconfig.sqlls.setup {}
 local lspkind = require('lspkind')
 local lsp = require('lsp-zero')
 lsp.preset("recommended")
