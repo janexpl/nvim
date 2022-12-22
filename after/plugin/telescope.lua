@@ -1,4 +1,4 @@
-local status, telescope = pcall(require, "telescope-builtin")
+local status, telescope = pcall(require, "telescope.builtin")
 if (not status) then return end
 
 local builtin = telescope
