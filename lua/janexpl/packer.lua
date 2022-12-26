@@ -90,4 +90,8 @@ return packer.startup(function(use)
     config = function() require("nvim-autopairs").setup {} end
   }
   use { 'norcalli/nvim-colorizer.lua' }
+  use {
+    'lewis6991/gitsigns.nvim',
+    -- tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
+  }
 end)

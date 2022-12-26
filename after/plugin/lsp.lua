@@ -67,7 +67,13 @@ lsp.set_preferences({
 
 lsp.on_attach(function(client, bufnr)
   local opts = { buffer = bufnr, remap = false }
-
+  if client.server_capabilities.documentFormattingProvider then
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      group = vim.api.nvim_create_augroup("Format", { clear = true }),
+      buffer = bufnr,
+      callback = function() vim.lsp.buf.format() end
+    })
+  end
   if client.name == "eslint" then
     vim.cmd.LspStop('eslint')
     return
@@ -82,8 +88,16 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, opts)
   vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, opts)
   vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, opts)
+  vim.keymap.set("n", "<leader>vrd", vim.lsp.buf.definition, opts)
   vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
+
 end)
+
+lspconfig.tsserver.setup {
+  on_attach = on_attach,
+  filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+  cmd = { "typescript-language-server", "--stdio" }
+}
 
 lsp.setup()
 
