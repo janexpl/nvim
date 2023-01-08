@@ -2,7 +2,7 @@ local status, clr = pcall(require, "catppuccin")
 if (not status) then return end
 
 clr.setup({
-  flavour = "frappe",
+  flavour = "mocha",
   transparent_background = true
 })
 

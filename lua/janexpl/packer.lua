@@ -19,7 +19,7 @@ return packer.startup(function(use)
     'catppuccin/nvim',
     as = 'catppuccin',
     config = function()
-      vim.cmd('colorscheme catppuccin-frappe')
+      vim.cmd('colorscheme catppuccin-mocha')
     end
   })
   use {
@@ -100,4 +100,11 @@ return packer.startup(function(use)
       require("null-ls")
     end
   }
+  -- use { "ayu-theme/ayu-vim",
+  --   as = 'ayu',
+  --   config = function()
+  --     vim.cmd('colorscheme ayu')
+  --   end
+  --
+  -- }
 end)

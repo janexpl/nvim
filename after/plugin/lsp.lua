@@ -1,7 +1,7 @@
 local status, lspconfig = pcall(require, "lspconfig")
 if (not status) then return end
-lspconfig.clangd.setup {}
-lspconfig.sqlls.setup {}
+-- lspconfig.clangd.setup {}
+-- lspconfig.sqlls.setup {}
 local lspkind = require('lspkind')
 local lsp = require('lsp-zero')
 lsp.preset("recommended")
@@ -11,6 +11,7 @@ lsp.ensure_installed({
   'eslint',
   'sumneko_lua',
   'rust_analyzer',
+  'clangd'
 })
 
 -- Fix Undefined global 'vim'
