@@ -100,6 +100,7 @@ return packer.startup(function(use)
       require("null-ls")
     end
   }
+  use 'kyazdani42/nvim-web-devicons'
   -- use { "ayu-theme/ayu-vim",
   --   as = 'ayu',
   --   config = function()
